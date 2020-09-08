@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Test</title>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+</head>
+
+<body>
+  <h1>test페이지 로드</h1>
+
+  <div class="yaw"></div>
+  <div class="pitch"></div>
+  <div class="roll"></div>
+
+  <script>
+    $(function () {
+      $.ajax({
+        type: "post",
+        async: true,
+        url: "http://127.0.0.1:3000/senser_data",
+        dataType: "json",
+        contentType: "application/json",
+        error: function (jqXHR, textStatus, errorThrown) {
+          console.log(textStatus);
+        },
+        success: function (data, textStatus, jqXHR) {
+          console.log(data);
+        },
+      });
+    });
+
+    // sendAjax();
+    // function sendAjax() {
+    //     url = 'http://127.0.0.1:3000/ajax_senser_data';
+    //     var xhr = new XMLHttpRequest();
+    //     xhr.open('POST', url);
+    //     xhr.setRequestHeader('Content-Type', 'application/json');
+    //     xhr.getResponseHeader('Content-type', 'application/json');
+    //     xhr.send();
+    //     xhr.addEventListener('load', function () {
+    //         var data = xhr.responseText;
+    //         console.log(data);
+    //         document.getElementById("test").innerHTML = data;
+    //     });
+    // }
+  </script>
+</body>
+
+</html>
